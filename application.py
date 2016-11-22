@@ -187,15 +187,8 @@ def categoryItemListJSON(category_id):
 
 @app.route('/category/<int:category_id>/item/<int:item_id>/JSON')
 def itemJSON(category_id, item_id):
-    Item = session.query(Item).filter_by(id=item_id).one()
-    return jsonify(Item=Item.serialize)
-
-
-@app.route('/category/JSON')
-def categoriesJSON():
-    categories = session.query(Category).all()
-    return jsonify(categorys=[r.serialize for r in categories])
-
+    currentItem = session.query(Item).filter_by(id=item_id).one()
+    return jsonify(Item=currentItem.serialize)
 
 # Show all categories and latest added items
 @app.route('/')
@@ -294,6 +287,7 @@ def newItem(category_id):
     else:
         return render_template('newitem.html', category_id=category_id)
 
+
 # Edit a item
 
 
@@ -343,7 +337,7 @@ def disconnect():
         if login_session['provider'] == 'google':
             gdisconnect()
             del login_session['gplus_id']
-            del login_session['credentials']
+            del login_session['access_token']
         if login_session['provider'] == 'facebook':
             fbdisconnect()
             del login_session['facebook_id']

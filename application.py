@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
-from sqlalchemy import create_engine, asc
+from sqlalchemy import create_engine, asc, desc
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Category, Item, User
 from flask import session as login_session
@@ -195,8 +195,9 @@ def itemJSON(category_id, item_id):
 @app.route('/catalog/')
 def showCatalog():
     categories = session.query(Category).order_by(asc(Category.name))
+    latest_items = session.query(Item).order_by(desc(Item.time_created)).limit(10)
     if 'username' not in login_session:
-        return render_template('publiccategories.html', categories=categories)
+        return render_template('leftmenu.html', categories=categories, latest_items=latest_items)
     else:
         return render_template('category.html', categories=categories)
 
@@ -266,6 +267,15 @@ def showItemList(category_id):
         category_id=category_id).all()
     if 'username' not in login_session or creator.id != login_session['user_id']:
         return render_template('publicitemlist.html', items=items, category=category, creator=creator)
+    else:
+        return render_template('itemlist.html', items=items, category=category, creator=creator)
+
+# Show item description
+@app.route('/category/<int:category_id>/item/<int:item_id>/')
+def showItem(item_id):
+    currentItem = session.query(Item).filter_by(id=item_id).one()
+    if 'username' not in login_session or creator.id != login_session['user_id']:
+        return render_template('publicitem.html', item=currentItem)
     else:
         return render_template('itemlist.html', items=items, category=category, creator=creator)
 

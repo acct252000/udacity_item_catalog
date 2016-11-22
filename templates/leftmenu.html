@@ -39,10 +39,11 @@
 	</div>
 	<div class = "col-md-6 lastest-items">
 	{% for item in latest_items %}
-		
-						{{item.name}}
-		</a><br>
+	<a href="{{url_for('showItem', category_id = item.Item.category_id, item_id = item.Item.id)}}">
+	
+	{{item.Item.name}}</a> <i>{{item.name}}</i>
 	{% endfor %}
+	
 	</div>
 	<div class = "col-md-2">
 	</div>

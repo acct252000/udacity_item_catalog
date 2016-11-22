@@ -195,7 +195,7 @@ def itemJSON(category_id, item_id):
 @app.route('/catalog/')
 def showCatalog():
     categories = session.query(Category).order_by(asc(Category.name))
-    latest_items = session.query(Item).order_by(desc(Item.time_created)).limit(10)
+    latest_items = session.query(Item).join(Item.category).add_columns(Category.name).order_by(desc(Item.time_created)).limit(10).all()
     if 'username' not in login_session:
         return render_template('leftmenu.html', categories=categories, latest_items=latest_items)
     else:
@@ -271,13 +271,14 @@ def showItemList(category_id):
         return render_template('itemlist.html', items=items, category=category, creator=creator)
 
 # Show item description
+
 @app.route('/category/<int:category_id>/item/<int:item_id>/')
-def showItem(item_id):
+def showItem(category_id, item_id):
     currentItem = session.query(Item).filter_by(id=item_id).one()
     if 'username' not in login_session or creator.id != login_session['user_id']:
         return render_template('publicitem.html', item=currentItem)
     else:
-        return render_template('itemlist.html', items=items, category=category, creator=creator)
+        return render_template('publicitem.html', items=currentItem)
 
 
 # Create a new item

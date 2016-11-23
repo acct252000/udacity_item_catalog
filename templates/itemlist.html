@@ -1,21 +1,19 @@
 {% extends "main.html" %}
 {% include "header.html" %}
 {% block content %}
-	<div class="divider">
+<div class="divider">
     <div class="col-md-12"></div>
 </div>
 <div class='flash'>
 {% with messages = get_flashed_messages() %}
-      {% if messages %}
-
+    {% if messages %}
     <ul>
      {% for message in messages %}
         <li> <strong> {{ message }} </strong> </li>
          {% endfor %}
     </ul>
     {% endif %}
-    {% endwith %}
-
+{% endwith %}
 </div>
 <div class="container">
     <div class="row main-row">
@@ -27,19 +25,16 @@
             {{category.name}}</a>
             <a class="category-edit" href="{{url_for('editCategory',category_id = category.id)}}">Edit</a> | <a class="category-edit" href="{{url_for('deleteCategory',category_id = category.id)}}">Delete</a></p>
             {% endfor %}
-           </div>
+        </div>
         <div class="col-md-8 latest-items col-md-border">
-
-        <p><a class="category-link" href="{{url_for('newItem', category_id=indcategory.id)}}">Add Item</a></p>
+			<p><a class="category-link" href="{{url_for('newItem', category_id=indcategory.id)}}">Add Item</a></p>
             <h2>{{indcategory.name}} Items ({{items | count}})</h2>
             <p><i>created by {{creator.name}}</i></p>
             {% for item in items %}
-	<p><a class="category-link" href="{{url_for('showItem', category_id = indcategory.id, item_id = item.id)}}">
-	
-	{{item.name}}</a> </p>
-	{% endfor %}
+			<p><a class="category-link" href="{{url_for('showItem', category_id = indcategory.id, item_id = item.id)}}">
+			{{item.name}}</a> </p>
+			{% endfor %}
         </div>
     </div>
-
 </div>
 {% endblock %}

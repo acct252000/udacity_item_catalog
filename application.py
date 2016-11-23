@@ -24,7 +24,8 @@ import string
 import httplib2
 import json
 import requests
-from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
+from flask import Flask, render_template, request
+from flask import redirect, jsonify, url_for, flash
 from flask import session as login_session
 from flask import make_response
 from sqlalchemy import create_engine, asc, desc

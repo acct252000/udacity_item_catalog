@@ -14,6 +14,10 @@ This flask and sqlaclhemy database is an item catalog with the ability for the p
 8.  You must login to add, edit or delete categories and items.  To add an item, click on one of the category descriptions from the home page.
 9.  To edit or delete an item, access the item page by clicking on the item name.
 
+### Accessing the JSON API
+
+1.  To access the json api for a given integer category id, say 1, and integer item id, say 2, the url is /category/1/item/2/JSON.  This url can be found by navigating to the item's page and ading /JOSN to the end of the current url.
+
 ### Attributions
 
 * The structure heavily relies on the [Udacity](https://www.udacity.com) course Full Stack Foundations and Authentication and Authorization.

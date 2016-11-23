@@ -10,7 +10,7 @@ This flask and sqlaclhemy database is an item catalog with the ability for the p
 4.  Launch the vagrant machine by typing `vagrant up.` in the command line from the vagrant directory.
 5.  Type `vagrant ssh.`
 6.  Navigate to the folder where you downloaded and extracted the zip file, ensuring you are in the directory that contains application.py
-7.  Type `application.py` to run test file.
+7.  Type `python application.py` to run test file.
 8.  You must login to add, edit or delete categories and items.  To add an item, click on one of the category descriptions from the home page.
 9.  To edit or delete an item, access the item page by clicking on the item name.
 

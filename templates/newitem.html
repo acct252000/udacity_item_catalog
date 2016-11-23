@@ -1,23 +1,18 @@
 {% extends "main.html" %}
-{% block content %}
 {% include "header.html" %}
-	<div class="row divider green">
-		<div class="col-md-12"></div>
-	</div>
-	<div class="row banner menu">
-		<div class="col-md-11 col-md-offset-1 padding-none">
-			<h1>New Item</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6 col-md-offset-1 padding-top">
+{% block content %}
+<div class="container">
+    <div class="row main-row">
+        <div class="col-md-12 category-list col-md-border">
+
+			<h2>Add New Item</h2>
 			<form action="#" method = "post">
 				<div class="form-group">
-					<label for="name">Name:</label>
-					<input type ="text" maxlength="50" class="form-control" name="name"placeholder="Name of the item">
+					<label for="name">Name:</label><br>
+					<input type ="text" maxlength="50" class="form-control" name="name"placeholder="Name of the item"><br><br>
 
-					<label for="description">Description:</label>
-					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the course"></textarea>
+					<label for="description">Description:</label><br>
+					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the item"></textarea><br><br>
 
 					
 					
@@ -28,6 +23,7 @@
 				</div>
 			</form>
 		</div>
+	</div>
 	</div>
 {% endblock %}
 

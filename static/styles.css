@@ -1,48 +1,141 @@
-* {
-	font-family: "Helvetica Neue Bold", Roboto, Helvetica, Arial, sans-serif;
-	font-weight: 700;
-	background-color: #EDEDEF;
+html {
+font-family: "Helvetica Neue Bold", Roboto, Helvetica, Arial, sans-serif;
+background-color: #EDEDEF;
+font-weight: 700;
 
 }
 
+body {
 
+background-color: #EDEDEF;
+}
+
+h1 {
+
+   color: #FFFFFF;
+   margin-top: 0px;
+
+}
 
 h2 {
-	font-size: 24px;
-	color: #020282;
-	line-height: 29px;
+font-size: 24px;
+color: #020282;
+line-height: 29px;
 }
 
 
 .top-menu {
 
-	background-color: #020282;
+background-color: #020282;
+color: #ffffff;
+padding: 15px;
+align-items: center;
+vertical-align: middle;
+}
+
+.top-link {
+color: #ffffff
+align-items: center;
 }
 
  .category-list {
- 	background-color: #EDEDEF;
- 	padding: 20px;
- 	color: #B20B24;
-}
- .category-list:hover {
- 	
+  background-color: #FFFFFF;
+  color: #B20B24;
+margin-top: 5px;
+margin-bottom: 5px;
+
+
 }
 
+
+ .category-list:hover {
+  
+}
+
+.latest-items {
+background-color: #FFFFFF;
+color: #B20B24;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.category-link{
+color: #B20B24;
+
+}
+
+.col-md-border:not(:last-child) {
+        border-right: 1px solid #d7d7d7;
+    }
+
+.col-md-border + .col-md-border {
+        border-left: 1px solid #d7d7d7;
+        margin-left: -1px;
+    }
+
 .flash {
-	background-color: #E5E15A;
-	width:100%;
-	text-decoration: none;
+background-color: #E5E15A;
+width:100%;
+text-decoration: none;
 
 }
 
 .flash li {
-	list-style-type: none;
-	text-align: center;
+list-style-type: none;
+text-align: center;
 
+}
+
+.divider {
+      background-color: #4286Fr
+      height: 5px;
+}
+
+.main-row {
+
+background-color: #FFFFFF;
+border-radius: 10px;
 }
 
 
 
-.latest-items {
-	background-color: #EDEDEF;
+.button {
+  font: bold 18px Arial;
+  text-decoration: none;
+  background-color: #EF2A1C;
+  color: #FFFFFF;
+  padding: 6px;
+  border-top: 1px solid #000000;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-radius: 7px;
+  vertical-align: middle;
+}
+
+.text-right {
+ vertical-align: middle;
+ align-items: center;
+
+padding-top: 15px;
+}
+
+.item-description {
+font-weight: 200;
+}
+
+.container {
+	margin-top: 15px;
+}
+
+i {
+	color: #AAA2A2;
+}
+
+.padding-bottom {
+	padding-bottom: 10px;
+}
+
+.form-group {
+	color: #000000;
 }
